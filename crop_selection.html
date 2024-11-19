@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Crop - Plant Disease Predictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1><i class="fas fa-leaf"></i> Plant Disease Predictor</h1>
+    </header>
+
+    <!-- Crop Selection Content -->
+    <main class="crop-selection-page">
+        <div class="selection-card">
+            <h1>Select a Crop</h1>
+            <p>Choose the crop you want to diagnose for diseases.</p>
+            <form id="crop-selection-form" onsubmit="redirectToUpload(event)">
+                <div class="input-group">
+                    <label for="crop-select">Select Crop</label>
+                    <select id="crop-select" name="crop" required>
+                        <option value="" disabled selected>Select a crop</option>
+                        <option value="wheat">Wheat</option>
+                        <option value="rice">Rice</option>
+                        <option value="maize">Maize</option>
+                        <option value="potato">Potato</option>
+                        <option value="tomato">Tomato</option>
+                        <option value="cotton">Cotton</option>
+                        <option value="sugarcane">Sugarcane</option>
+                    </select>
+                </div>
+                <button type="submit" class="select-button">Proceed</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Plant Disease Predictor. All rights reserved. <i class="fas fa-seedling"></i></p>
+    </footer>
+
+    <script>
+        // Redirect to index.html with the selected crop
+        function redirectToUpload(event) {
+            event.preventDefault(); // Prevent form submission
+            const selectedCrop = document.getElementById('crop-select').value;
+            if (selectedCrop) {
+                window.location.href = `predict.html?crop=${selectedCrop}`; // Redirect to index.html with crop as a query parameter
+            } else {
+                alert("Please select a crop before proceeding.");
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
+</body>
+</html>
